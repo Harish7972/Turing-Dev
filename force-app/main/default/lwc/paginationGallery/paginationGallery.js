@@ -136,4 +136,4 @@ export default class paginationGallery extends LightningElement {
         });
         this.dispatchEvent(event);
     }
-}
+} 
