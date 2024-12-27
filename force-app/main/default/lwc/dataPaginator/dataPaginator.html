@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-card">
+        <div class="slds-card__header">
+            <h1 class="slds-text-heading_medium">Product List</h1>
+        </div>
+        <div class="slds-card__body">
+            <!-- Display product tiles -->
+            <div class="slds-grid slds-wrap">
+                <template for:each={products} for:item="product">
+                    <div key={product.Id} class="slds-col slds-size_1-of-3">
+                        <div class="product-tile">
+                            <lightning-icon icon-name="utility:product" size="small" class="tile-icon"></lightning-icon>
+                            <span>{product.Name}</span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <!-- Page number display -->
+        <div class="slds-card__footer">
+            <p class="page-number">
+                Page {currentPage} of {totalPages}
+            </p>
+
+            <!-- 'Previous' button to navigate to the previous page, disabled if on the first page -->
+            <lightning-button class="previous" variant="neutral" label="Previous" onclick={handlePreviousPage} disabled={isPreviousDisabled}></lightning-button>
+
+            <!-- 'Next' button to navigate to the next page, disabled if on the last page -->
+            <lightning-button class="next" variant="neutral" label="Next" onclick={handleNextPage} disabled={isNextDisabled}></lightning-button>
+        </div>
+    </div>
+</template>

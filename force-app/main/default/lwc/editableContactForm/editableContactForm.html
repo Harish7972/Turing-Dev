@@ -1,0 +1,39 @@
+<template>
+    <div class="contact-form-container">
+        <!-- Title -->
+        <h2 class="form-title">
+            {formTitle}
+        </h2>
+
+        <!-- Contact Form -->
+        <lightning-record-edit-form
+            object-api-name="Contact"
+            record-id={recordId}
+            onsuccess={handleSuccess}
+            onerror={handleError}
+            onsubmit={handleSubmit}
+        >
+            <!-- Fields -->
+            <div class="form-fields">
+                <lightning-input-field field-name="FirstName" required></lightning-input-field>
+                <lightning-input-field field-name="LastName" required></lightning-input-field>
+                <lightning-input-field
+                    field-name="Phone"
+                    onchange={validatePhone}
+                    required>
+                </lightning-input-field>
+                <lightning-input-field
+                    field-name="Email"
+                    onchange={validateEmail}
+                    required>
+                </lightning-input-field>
+            </div>
+
+            <!-- Buttons -->
+            <div class="form-buttons">
+                <lightning-button type="reset" label="Reset" class="slds-m-right_small"></lightning-button>
+                <lightning-button type="submit" variant="brand" label="Save"></lightning-button>
+            </div>
+        </lightning-record-edit-form>
+    </div>
+</template>

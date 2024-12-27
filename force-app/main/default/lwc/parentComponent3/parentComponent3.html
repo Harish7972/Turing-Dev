@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Manage Contact">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </template>
+
+        <template if:true={isFormVisible}>
+            <c-editable-contact-form
+                record-id={selectedRecordId}
+                onclose={handleCloseForm}>
+            </c-editable-contact-form>
+        </template>
+
+        <template if:true={isFormVisible}>
+            <c-image-uploader
+                record-id={selectedRecordId}
+                onclose={handleCloseForm}>
+            </c-image-uploader>
+        </template>
+
+        <template if:false={isFormVisible}>
+            <lightning-button
+                label="Edit Latest Contact"
+                onclick={fetchAndOpenForm}
+                disabled={isLoading}>
+            </lightning-button>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Task Management" icon-name="utility:task">
+        <template for:each={tasks} for:item="task">
+            <div key={task.id} class="slds-p-around_medium slds-box slds-m-bottom_medium">
+                <h3>{task.name}</h3>
+
+                <lightning-button
+                    label="Publish Error"
+                    onclick={handlePublishError}
+                    data-id={task.id}
+                    variant="destructive"
+                    class="slds-m-right_medium">
+                </lightning-button>
+                <lightning-button
+                    label="Publish Warning"
+                    onclick={handlePublishWarning}
+                    data-id={task.id}
+                    variant="neutral"
+                    class="slds-m-right_medium">
+                </lightning-button>
+                <lightning-button
+                    label="Publish Success"
+                    onclick={handlePublishSuccess}
+                    data-id={task.id}
+                    variant="brand">
+                </lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>

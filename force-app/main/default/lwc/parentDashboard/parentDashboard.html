@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Parent Dashboard">
+        <template if:true={hasClients}>
+            <p>Select a client to view KPIs:</p>
+            <template for:each={clients} for:item="client">
+                <div key={client.Id} data-id={client.Id} onclick={handleClientSelection}>
+                    {client.Name}
+                </div>
+            </template>
+        </template>
+        <template if:false={hasClients}>
+            <p>No clients available or data is loading...</p>
+        </template>
+        <template if:true={selectedClientId}>
+            <c-kpi-dashboard client-id={selectedClientId}></c-kpi-dashboard> <!-- Child component -->
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title="Case Dashboard" icon-name="standard:case">
+        <div class="dashboard-container">
+            <h1 class="dashboard-header">Case Management Dashboard</h1>
+
+            <!-- Case List Section -->
+            <div class="components-container">
+                <div class="case-list-section">
+                    <h2>Case List</h2>
+                    <c-case-list oncaseaction={handleCaseSelection}></c-case-list>
+                </div>
+            </div>
+
+            <!-- Action Buttons Section -->
+            <div class="case-action-section">
+                <lightning-button 
+                    label="Show Details" 
+                    onclick={handleShowDetails} 
+                    variant="brand"
+                    class="action-button"
+                    disabled={isDetailsButtonDisabled}>
+                </lightning-button>
+
+                <lightning-button 
+                    label="Update Status" 
+                    onclick={handleUpdateStatus} 
+                    variant="brand"
+                    class="action-button"
+                    disabled={isUpdateButtonDisabled}>
+                </lightning-button>
+
+                <lightning-button 
+                    label="Escalate Case" 
+                    onclick={handleEscalateCase} 
+                    variant="destructive"
+                    class="action-button"
+                    disabled={isEscalateButtonDisabled}>
+                </lightning-button>
+            </div>
+
+            <!-- Case Details Section -->
+            <div class="case-detail-section">
+                <template if:true={selectedCaseForDetail}>
+                    <c-case-detail case-id={tempId}></c-case-detail>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

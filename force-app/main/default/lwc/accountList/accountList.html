@@ -1,0 +1,19 @@
+<template>
+    <template if:true={accounts}>
+        <ul>
+            <template for:each={accounts} for:item="account">
+                <li key={account.Id}>
+                    <span>{account.Name}</span>
+                </li>
+            </template>
+        </ul>
+    </template>
+
+    <template if:true={error}>
+        <p>Error: {error}</p>
+    </template>
+
+    <template if:true={accounts}>
+        <lightning-button label="Refresh Accounts" onclick={handleRefresh}></lightning-button>
+    </template>
+</template>

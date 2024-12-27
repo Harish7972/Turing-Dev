@@ -1,0 +1,61 @@
+<template>
+    <div class="slds-card">
+        <div class="slds-card__header slds-text-align_center">
+            <h1 class="slds-text-heading_medium">Voting System</h1>
+        </div>
+        <div class="slds-card__body">
+            <template for:each={questions} for:item="question">
+                <div key={question.Id} class="slds-box slds-p-around_medium slds-m-bottom_medium">
+                    <!-- Question Title -->
+                    <h2 class="slds-text-heading_small">{question.Name}</h2>
+
+                    <!-- Time Elapsed -->
+                    <div class="slds-text-body_small slds-text-color_weak slds-m-bottom_small">
+                        <span>{question.timeElapsed} ago</span>
+                    </div>
+
+                    <!-- Answer and Edit Options -->
+                    <template if:true={question.isEditing}>
+                        <textarea
+                            class="slds-textarea slds-m-bottom_small"
+                            data-id={question.Id}
+                            value={question.tempAnswer}
+                            onchange={handleInputChange}
+                        ></textarea>
+                        <div class="slds-grid slds-grid_align-spread slds-m-bottom_small">
+                            <button class="slds-button slds-button_brand" onclick={saveAnswer} data-id={question.Id}>Save</button>
+                            <button class="slds-button slds-button_neutral" onclick={cancelEdit} data-id={question.Id}>Cancel</button>
+                        </div>
+                    </template>
+                    <template if:false={question.isEditing}>
+                        <p class="slds-m-bottom_small">{question.Answer__c}</p>
+                        <button class="slds-button slds-button_neutral" onclick={toggleEdit} data-id={question.Id}>
+                            Edit Answer
+                        </button>
+                    </template>
+
+                    <!-- Vote Section -->
+                    <div class="slds-grid slds-grid_align-left slds-m-top_small">
+                        <button
+                            class="slds-button slds-button_icon slds-button_icon-border-filled slds-m-right_small"
+                            onclick={upvote}
+                            data-id={question.Id}
+                            disabled={question.hasUpvoted}
+                        >
+                            👍
+                        </button>
+                        <span class="slds-text-heading_medium slds-m-right_small">{question.Votes__c}</span>
+                        <button
+                            class="slds-button slds-button_icon slds-button_icon-border-filled"
+                            onclick={downvote}
+                            data-id={question.Id}
+                            disabled={question.hasDownvoted}
+                        >
+                            👎
+                        </button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

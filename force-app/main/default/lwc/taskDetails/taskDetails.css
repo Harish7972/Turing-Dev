@@ -1,0 +1,50 @@
+/* Center align the title */
+.center-card .slds-card__header {
+    text-align: center;
+}
+
+/* Grid layout for task tiles */
+.tile-container {
+    gap: 16px; /* Space between tiles */
+}
+
+/* Tile styles */
+.tile {
+    width: 250px; /* Fixed width for consistent layout */
+    background-color: #f4f6f9; /* Light gray background for contrast */
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center; /* Center align tile content */
+}
+
+/* Tile hover effect */
+.tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Tile text */
+.tile p {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+    margin-top: 20px;
+}
+
+.page-number {
+    font-size: 16px;
+    font-weight: bold;
+    color: #34495e;
+}
+
+/* Center pagination buttons and text */
+.pagination-controls {
+    justify-content: center;
+    align-items: center;
+}

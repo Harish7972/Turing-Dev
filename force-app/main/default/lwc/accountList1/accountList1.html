@@ -1,0 +1,22 @@
+<template>
+   <lightning-card  variant="Narrow"  title="Account Data" icon-name="standard:account">
+      <div style="display:flex;justify-content: center">
+      <template if:true={accounts}>
+        
+         <ul>
+            <template for:each={accounts} for:item="account">
+               <li key={account.Id}>{account.Name}</li>
+            </template>
+        </ul>
+      </template>
+      </div>
+      <template if:true={error}>
+         <p>Error: {error}</p>
+      </template>
+      <div style="padding-left: 550px;">
+           <lightning-button label="Refresh Accounts" onclick={handleManualRefresh}></lightning-button>
+      </div>  
+   
+    <br/>  <br/>
+   </lightning-card>
+</template>

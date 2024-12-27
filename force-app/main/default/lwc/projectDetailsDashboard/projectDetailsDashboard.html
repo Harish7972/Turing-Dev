@@ -1,0 +1,17 @@
+<template>
+    <!-- Card Layout for the Parent Component -->
+    <lightning-card title="Project Dashboard Overview" icon-name="utility:dashboard">
+        <div class="slds-p-around_medium slds-text-align_center">
+            <!-- Welcome Message -->
+            <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+                Welcome to the Project Dashboard
+            </h2>
+            <!-- Instructional Text -->
+            <p class="slds-text-body_regular slds-m-bottom_medium">
+                The dashboard listens for project updates from the sender component.
+            </p>
+            <!-- Include the Child Component -->
+            <c-message-component></c-message-component>
+        </div>
+    </lightning-card>
+</template>

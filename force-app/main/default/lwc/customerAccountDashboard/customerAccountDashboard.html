@@ -1,0 +1,38 @@
+<template>
+    <div class="slds-grid slds-wrap slds-p-around_medium">
+        <!-- Center the card with increased height -->
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-m-horizontal_auto">
+            <lightning-card title="Customer Account Dashboard" class="dashboard-card taller-card">
+                <!-- Show spinner while loading -->
+                <template if:true={loading}>
+                    <div class="slds-align_absolute-center slds-p-around_medium">
+                        <lightning-spinner alternative-text="Loading account data..." size="large"></lightning-spinner>
+                        <p class="slds-text-body_small slds-m-top_medium">Loading account data, please wait...</p>
+                    </div>
+                </template>
+
+                <!-- Display account data once loaded -->
+                <template if:true={accountData}>
+                    <div class="slds-p-horizontal_large slds-p-vertical_medium">
+                        <p class="slds-text-title_bold">Account Name:</p>
+                        <p class="slds-text-body_regular slds-m-bottom_small">{accountData.Name}</p>
+                        <p class="slds-text-title_bold">Account Number:</p>
+                        <p class="slds-text-body_regular">{accountData.AccountNumber}</p>
+                    </div>
+                </template>
+
+                <!-- Show error message if there is an error -->
+                <template if:true={error}>
+                    <div class="slds-align_absolute-center slds-p-around_medium">
+                        <p class="slds-text-color_error slds-m-bottom_small">{error}</p>
+                        <lightning-button
+                            label="Retry"
+                            variant="brand"
+                            onclick={retryLoad}>
+                        </lightning-button>
+                    </div>
+                </template>
+            </lightning-card>
+        </div>
+    </div>
+</template>

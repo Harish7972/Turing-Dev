@@ -1,0 +1,80 @@
+<template>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-text">
+            <h1>Revolutionize Your Finances with Our SaaS-Based Financial Solutions</h1>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="header-container">
+        <h1>Welcome to FinSecure Financial Services</h1>
+    </div>
+
+    <!-- Loading State -->
+    <template if:true={isLoading}>
+        <div class="loading-container">
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+            <p>Loading data...</p>
+        </div>
+    </template>
+
+    <!-- Error State -->
+    <template if:true={hasError}>
+        <div class="error-container">
+            <lightning-icon icon-name="utility:error" size="small" class="error-icon"></lightning-icon>
+            <h2 class="error-message">{errorMessage}</h2>
+            <p class="contact-message">If the issue persists, please <span class="contact-support" onclick={handleContactClick}>contact support</span>.</p>
+            <lightning-button label="Retry" variant="brand" onclick={handleRetry}></lightning-button>
+        </div>
+    </template>
+
+    <!-- No Data State -->
+    <template if:true={hasNoData}>
+        <div class="no-data-container">
+            <lightning-icon icon-name="utility:info" size="small" class="info-icon"></lightning-icon>
+            <h2>No financial data available at the moment.</h2>
+        </div>
+    </template>
+
+    <!-- Financial Data with Pagination -->
+    <template if:true={financialData}>
+        <div class="data-container">
+            <h2>Latest Financial Data</h2>
+            <ul>
+                <template for:each={financialData} for:item="data">
+                    <li key={data.Id}>
+                        <div>
+                            <strong>{data.Name}</strong>
+                        </div>
+                        <div>
+                            <span>Amount: {data.Amount__c}</span>
+                            <span>Date: {data.Date__c}</span>
+                        </div>
+                    </li>
+                </template>
+            </ul>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="slds-m-top_medium slds-grid pagination-controls">
+            <div class="slds-col slds-text-align_left">
+                <lightning-button
+                    label="Previous"
+                    onclick={handlePreviousPage}
+                    disabled={isPreviousDisabled}>
+                </lightning-button>
+            </div>
+            <div class="slds-col slds-text-align_center">
+                <p>Page {currentPage} of {totalPages}</p>
+            </div>
+            <div class="slds-col slds-text-align_right">
+                <lightning-button
+                    label="Next"
+                    onclick={handleNextPage}
+                    disabled={isNextDisabled}>
+                </lightning-button>
+            </div>
+        </div>
+    </template>
+</template>

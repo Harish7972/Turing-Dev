@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Task Board" icon-name="utility:task">
+        <!-- <div class="slds-p-around_medium"> -->
+        <div class="slds-grid slds-wrap slds-align_absolute-center slds-p-around_medium task-container">
+    
+            <template for:each={tasks} for:item="task">
+                <div
+                    key={task.id}
+                    class="slds-box slds-m-bottom_small draggable-task"
+                    draggable="true"
+                    data-id={task.id}
+                    ondragstart={handleDragStart}>
+                    <p>{task.name}</p>
+                    <lightning-button
+                        label="Complete"
+                        variant="brand"
+                        onclick={handleClick}
+                    ></lightning-button>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

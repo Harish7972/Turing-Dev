@@ -1,0 +1,13 @@
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="investmentDashboard">
+    <!-- Specifies the API version for the component -->
+    <apiVersion>56.0</apiVersion>
+
+    <!-- Makes the component accessible in Salesforce -->
+    <isExposed>true</isExposed>
+
+    <!-- Defines where the component can be used -->
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+    </targets>
+</LightningComponentBundle>

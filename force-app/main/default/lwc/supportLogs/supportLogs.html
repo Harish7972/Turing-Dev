@@ -1,0 +1,62 @@
+<!-- <template>
+    <lightning-card>
+    <div class="slds-p-around_medium">
+        <h1 class="slds-text-heading_large slds-text-align_center slds-m-bottom_medium">
+            Support Logs Dashboard
+        </h1>
+        <div class="tile-container">
+            <template if:true={logs}>
+                <template for:each={logs} for:item="log">
+                    <c-support-log
+                        key={log.Id}
+                        subject={log.Subject__c}
+                        description={log.Description__c}
+                        status={log.Status__c}
+                        log-id={log.Id}
+                        onlogresolved={handleLogResolved}>
+                    </c-support-log>
+                </template>
+            </template>
+            <template if:false={logs}>
+                <p class="slds-text-body_small">No logs to display.</p>
+            </template>
+        </div>
+    </div>
+</lightning-card>
+</template> -->
+
+
+<template>
+    <lightning-card>
+        <div class="slds-p-around_medium slds-text-align_center">
+            <!-- Dashboard Title -->
+            <h1 class="slds-text-heading_large slds-m-bottom_medium">
+                Support Logs Dashboard
+            </h1>
+
+            <!-- Tile Container with Center Alignment -->
+            <div class="tile-container slds-grid slds-wrap slds-grid_vertical-align-center slds-m-top_medium slds-grid_align-center">
+                <!-- Logs Template -->
+                <template if:true={logs}>
+                    <!-- Loop over logs and create tiles -->
+                    <template for:each={logs} for:item="log">
+                        <lightning-card class="slds-col slds-size_1-of-3 slds-small-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-p-around_small" key={log.Id}>
+                            <c-support-log
+                                subject={log.Subject__c}
+                                description={log.Description__c}
+                                status={log.Status__c}
+                                log-id={log.Id}
+                                onlogresolved={handleLogResolved}>
+                            </c-support-log>
+                        </lightning-card>
+                    </template>
+                </template>
+                
+                <!-- Message when no logs exist -->
+                <template if:false={logs}>
+                    <p class="slds-text-body_small">No logs to display.</p>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

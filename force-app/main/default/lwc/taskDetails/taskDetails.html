@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Task Details">
+        <!-- Display task details if user is a manager -->
+        <template if:true={taskVisible}>
+            <p>This is the task information.</p>
+        </template>
+        <!-- Display message when the user is not authorized -->
+        <template if:false={taskVisible}>
+            <p>You do not have access to this task's details.</p>
+        </template>
+    </lightning-card>
+</template>

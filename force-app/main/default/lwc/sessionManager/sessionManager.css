@@ -1,0 +1,35 @@
+/* Custom Styles for Session Manager */
+.slds-p-around_medium {
+    padding: 1rem;
+}
+
+/* Move the End Session Button to the right */
+.end-session-btn {
+    margin-left: 1rem;
+}
+
+/* Style for the session log container */
+.session-log-container {
+    margin-top: 2rem;
+}
+
+/* Style the session log table */
+.session-log-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.session-log-table th, .session-log-table td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.session-log-table th {
+    background-color: #f4f6f9;
+}
+
+.session-log-table tr:hover {
+    background-color: #f1f1f1;
+}

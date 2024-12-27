@@ -1,0 +1,71 @@
+/* Default Table Styles */
+.table-container lightning-datatable {
+    font-family: Arial, sans-serif;
+}
+
+/* Theme 1: Modern */
+.theme-modern lightning-datatable {
+    --slds-c-table-color-background-header: #f8f9fa;
+    --slds-c-table-color-border: #dcdcdc;
+    --slds-c-table-cell-spacing: 10px;
+    --slds-c-table-text-color: #333333;
+    --slds-c-table-header-font-weight: 600;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.theme-modern lightning-datatable tr {
+    background-color: #ffffff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.theme-modern lightning-datatable tr:hover {
+    background-color: #e8f0fe;
+    cursor: pointer;
+}
+
+.theme-modern lightning-datatable th {
+    background-color: #d9e7ff;
+    color: #0054d6;
+    border-bottom: 2px solid #0054d6;
+}
+
+.theme-modern lightning-datatable td {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Theme 2: Classic */
+.theme-classic lightning-datatable {
+    --slds-c-table-color-background-header: #f3f3f3;
+    --slds-c-table-color-border: #aaaaaa;
+    --slds-c-table-header-font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    border: 2px solid #777777;
+}
+
+.theme-classic lightning-datatable th {
+    background-color: #cccccc;
+    color: #333333;
+    border-bottom: 2px solid #777777;
+}
+
+.theme-classic lightning-datatable tr {
+    background-color: #ffffff;
+}
+
+.theme-classic lightning-datatable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.theme-classic lightning-datatable tr:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.theme-classic lightning-datatable td {
+    border-bottom: 1px solid #aaaaaa;
+    padding: 8px;
+    color: #333333;
+}

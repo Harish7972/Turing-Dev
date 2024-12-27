@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Manage Record">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </template>
+
+        <!-- <template if:true={isFormVisible}>
+            <c-image-uploader
+                record-id={selectedRecordId}
+                onclose={handleCloseForm}>
+            </c-image-uploader>
+        </template> -->
+
+        <template if:false={isFormVisible}>
+            <lightning-button
+                label="Upload Image"
+                onclick={fetchAndOpenForm}
+                disabled={isLoading}>
+            </lightning-button>
+        </template>
+    </lightning-card>
+</template>

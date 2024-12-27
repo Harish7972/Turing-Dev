@@ -1,0 +1,25 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Loyalty Form" icon-name="standard:account">
+        <lightning-input 
+            label="Email" 
+            type="email" 
+            value={email} 
+            onchange={handleEmailInput} 
+            onblur={handleEmailBlur}>
+        </lightning-input>
+    <template if:true={emailError}>
+        <div class="slds-text-color_error">{emailError}</div>
+    </template>
+
+        <lightning-input 
+            label="Phone" 
+            type="tel" 
+            value={phone} 
+            onchange={handlePhoneInput} 
+            onblur={handlePhoneBlur}>
+        </lightning-input>
+        <template if:true={phoneError}>
+            <div class="slds-text-color_error">{phoneError}</div>
+        </template>
+    </lightning-card>
+</template>

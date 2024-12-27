@@ -1,0 +1,22 @@
+<template>
+    <!-- Pagination Controls -->
+    <div class="slds-m-top_medium slds-grid pagination-controls">
+        <div class="slds-col slds-text-align_left">
+            <lightning-button
+                label="Previous"
+                onclick={handlePreviousPage}
+                disabled={isPreviousDisabled}>
+            </lightning-button>
+        </div>
+        <div class="slds-col slds-text-align_center">
+            <p>Page {currentPage} of {totalPages}</p>
+        </div>
+        <div class="slds-col slds-text-align_right">
+            <lightning-button
+                label="Next"
+                onclick={handleNextPage}
+                disabled={isNextDisabled}>
+            </lightning-button>
+        </div>
+    </div>
+</template>

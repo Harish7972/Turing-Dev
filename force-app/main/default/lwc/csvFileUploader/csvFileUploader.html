@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="CSV File Uploader" icon-name="utility:upload">
+        <div class="slds-m-around_medium">
+            <lightning-file-upload
+                label="Upload CSV File"
+                name="csvUploader"
+                accept={acceptedFormats}
+                multiple="false"
+                onuploadfinished={handleUploadFinished}
+            ></lightning-file-upload>
+
+            <template if:true={isLoading}>
+                <div class="slds-m-top_medium">
+                    <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                </div>
+            </template>
+
+            <template if:true={csvData}>
+                <div class="slds-m-top_medium">
+                    <lightning-button 
+                        label={dataButtonLabel}
+                        onclick={toggleDataVisibility}>
+                    </lightning-button>
+                    <template if:true={isDataVisible}>
+                        <lightning-datatable
+                            key-field="id"
+                            data={csvData}
+                            columns={columns}
+                            hide-checkbox-column
+                        >
+                        </lightning-datatable>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,14 @@
+<!-- subscriptionDataLWC.html -->
+<template>
+    <lightning-card title="Subscription Data">
+        <template if:true={subscriptionData}>
+            <div>
+                <p><strong>Subscription Plan:</strong> {subscriptionData.Plan__c}</p>
+                <p><strong>Status:</strong> {subscriptionData.Status__c}</p>
+            </div>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+    </lightning-card>
+</template>

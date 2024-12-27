@@ -1,0 +1,93 @@
+<template>
+    <div class="event-registration-container">
+        <!-- Background Image and Title -->
+        <h1 class="title">Corporate Event Management Services In India</h1>
+
+        <h2 class="slds-text-heading_medium slds-text-align_center">Register for Events</h2>
+
+        <!-- Event Selection Dropdown -->
+        <select id="event" name="event" onchange={handleEventSelect} required class="styled-combobox">
+            <option value="">Select an Event</option>
+            <template for:each={events} for:item="event">
+                <option key={event.Id} value={event.Id}>{event.Name}</option>
+            </template>
+        </select>
+
+        <!-- Registration Form -->
+        <template if:true={isFormVisible}>
+            <form onsubmit={handleFormSubmit}>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        value={name} 
+                        onchange={handleInputChange} 
+                        required 
+                        class="form-input" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        value={email} 
+                        onchange={handleInputChange} 
+                        required 
+                        class="form-input" />
+                </div>
+                <!-- Phone Field -->
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        value={phone} 
+                        onchange={handleInputChange} 
+                        class="form-input" />
+                    <template if:true={isPhoneNumericLengthNumericError}>
+                        <p class="error-message">Phone must be 10 numeric characters and should not contain letters or symbols.</p>
+                    </template>
+                    <template if:true={isPhoneNumericError}>
+                        <p class="error-message">Phone must be 10 numeric characters.</p>
+                    </template>
+                    <template if:true={isPhoneLengthError}>
+                        <p class="error-message">Phone must be 10 numeric characters.</p>
+                    </template>
+                </div>
+
+                <!-- Date Field -->
+                <div class="form-group">
+                    <label for="date">Event Date</label>
+                    <input 
+                        type="date" 
+                        id="date" 
+                        name="date" 
+                        value={date} 
+                        onchange={handleInputChange} 
+                        class="form-input" />
+                    <template if:true={dateError}>
+                        <p class="error-message">Please select a date that is not in the past.</p>
+                    </template>
+                </div>
+                <button type="submit" class="submit-btn" disabled={isPhoneError}>Register</button>
+            </form>
+        </template>
+        <!-- Location Search Box -->
+        <!-- <div class="location-search">
+            <label for="location">Search Location</label>
+            <input type="text" id="location" name="location" class="search-box" placeholder="Enter location..." />
+        </div> -->
+
+        <!-- Images Section -->
+        <div class="images-section">
+            <img src={imageUrl1} alt="Event 1" class="event-image" />
+            <img src={imageUrl2} alt="Event 2" class="event-image" />
+            <img src={imageUrl3} alt="Event 3" class="event-image" />
+        </div>
+
+    </div>
+</template>

@@ -1,0 +1,56 @@
+<template>
+    <lightning-card title="KPI Dashboard" class="center-title">
+        <!-- Spinner -->
+        <template if:true={isLoading}>
+            <div class="slds-text-align_center">
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:true={kpiData}>
+            <div class="slds-grid slds-wrap tile-container">
+                <template for:each={kpiData} for:item="kpi">
+                    <div key={kpi.clientId} class="slds-col slds-size_1-of-3 tile">
+                        <lightning-card class="tile-card">
+                            <h3>{kpi.clientName}</h3>
+                            <p><strong>Total Sales:</strong> {kpi.totalSales}</p>
+                            <p><strong>Last Deal:</strong> {kpi.lastDeal}</p>
+                        </lightning-card>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <template if:true={error}>
+            <p>Error: {error}</p>
+        </template>
+
+        <!-- Pagination Controls -->
+        <div class="slds-m-top_medium slds-grid pagination-controls">
+            <div class="slds-col slds-text-align_left">
+                <lightning-button
+                    label="Previous"
+                    onclick={handlePreviousPage}
+                    disabled={isPreviousDisabled}>
+                </lightning-button>
+            </div>
+            <div class="slds-col slds-text-align_center">
+                <p>Page {currentPage} of {totalPages}</p>
+            </div>
+            <div class="slds-col slds-text-align_right">
+                <lightning-button
+                    label="Next"
+                    onclick={handleNextPage}
+                    disabled={isNextDisabled}>
+                </lightning-button>
+            </div>
+        </div>
+
+        <!-- Refresh Data -->
+        <div class="slds-m-top_medium slds-text-align_center">
+            <lightning-button
+                label="Refresh Data"
+                onclick={refreshData}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

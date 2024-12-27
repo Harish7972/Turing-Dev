@@ -1,0 +1,28 @@
+<template>
+    <!-- Investment Dashboard Card -->
+    <lightning-card title="Investment Dashboard" icon-name="custom:custom63">
+        <div class="slds-p-around_medium slds-text-align_center">
+            <!-- Heading -->
+            <h2 class="slds-text-heading_medium slds-m-bottom_medium">Welcome to Your Investment Dashboard</h2>
+
+            <!-- Button to trigger handleClick -->
+            <lightning-button 
+                label="Click Me" 
+                variant="brand" 
+                class="slds-m-bottom_medium"
+                onclick={handleClick}>
+            </lightning-button>
+
+            <!-- Input field for user interaction -->
+            <lightning-input 
+                label="Type something:" 
+                placeholder="Enter text here" 
+                class="slds-m-bottom_medium"
+                onchange={handleChange}>
+            </lightning-input>
+
+            <!-- Investment Widget Component -->
+            <c-investment-widget1 oncustom={handleCustomEvent}></c-investment-widget1>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,56 @@
+<template>
+    <div class="hero-section">
+        <div class="hero-text">
+            <h1>SaaS-Based CloudSolutions Solutions</h1>
+        </div>
+    </div>
+    <lightning-card title="Dashboard Metrics" icon-name="custom:custom63">
+        <!-- <div class="slds-m-around_medium"> -->
+            <template if:true={metricsData}>
+                <!-- Datatable with paginated data -->
+                <lightning-datatable data={paginatedData} columns={columns} key-field="Id"></lightning-datatable>
+
+                <!-- Pagination Controls -->
+                <!-- <div class="slds-card__footer">
+                    <button 
+                        class="footer-buttons"
+                        onclick={handlePrevious} 
+                        disabled={isFirstPage}>
+                        Previous
+                    </button>
+                    <div class="slds-card__footer">
+                        <p class="page-number">
+                            Page {currentPage} of {totalPages}
+                        </p>
+                    </div>
+                    <button 
+                        class="footer-buttons"
+                        onclick={handleNext} 
+                        disabled={isLastPage}>
+                        Next
+                    </button>
+                </div> -->
+
+
+                <div class="slds-card__footer">
+                    <p class="page-number">
+                        Page {currentPage} of {totalPages}
+                    </p>
+        
+                    <!-- Footer buttons, positioned using flexbox -->
+                    <div class="footer-buttons">
+                        <!-- 'Previous' button to navigate to the previous page, disabled if on the first page -->
+                        <lightning-button variant="neutral" label="Previous" onclick={handlePrevious} disabled={isFirstPage}></lightning-button>
+        
+                        <!-- 'Next' button to navigate to the next page, disabled if on the last page -->
+                        <lightning-button class="next" variant="neutral" label="Next" onclick={handleNext} disabled={isLastPage}></lightning-button>
+                    </div>
+                </div>
+            </template>
+
+            <template if:true={isLoading}>
+                <lightning-spinner size="medium" alternative-text="Loading"></lightning-spinner>
+            </template>
+        <!-- </div> -->
+    </lightning-card>
+</template>

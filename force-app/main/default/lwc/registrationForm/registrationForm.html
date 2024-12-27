@@ -1,0 +1,65 @@
+<template>
+    <lightning-card title="Registration Form" icon-name="utility:form">
+        <div class="slds-p-around_medium">
+            <form onsubmit={handleSubmit} onreset={handleReset} class="registration-form">
+                <!-- Centered Registration Form Title -->
+                <h2 class="form-title">Registration Form</h2>
+
+                <!-- First Name Input -->
+                <lightning-input 
+                    type="text" 
+                    name="firstName" 
+                    label="First Name" 
+                    oninput={handleInput} 
+                    onfocus={handleFocus} 
+                    onblur={handleBlur}>
+                </lightning-input>
+                <p>First Name: {firstName}</p>
+
+                <!-- Last Name Input -->
+                <lightning-input 
+                    type="text" 
+                    name="lastName" 
+                    label="Last Name" 
+                    oninput={handleInput} 
+                    onfocus={handleFocus} 
+                    onblur={handleBlur}>
+                </lightning-input>
+                <p>Last Name: {lastName}</p>
+
+                <!-- Email Input -->
+                <lightning-input 
+                    type="email" 
+                    name="email" 
+                    label="Email" 
+                    oninput={handleInput} 
+                    onfocus={handleFocus} 
+                    onblur={handleBlur}>
+                </lightning-input>
+                <p>Email: {email}</p>
+
+                <!-- Password Input -->
+                <lightning-input 
+                    type="password" 
+                    name="password" 
+                    label="Password" 
+                    oninput={handleInput} 
+                    onfocus={handleFocus} 
+                    onblur={handleBlur}>
+                </lightning-input>
+                <p>Password: {password}</p>
+
+                <!-- Error message for invalid email -->
+                <template if:true={emailError}>
+                    <p class="error-message">{emailError}</p>
+                </template>
+
+                <!-- Form Action Buttons -->
+                <div class="form-actions">
+                    <lightning-button type="submit" label="Submit" class="slds-m-right_small"></lightning-button>
+                    <lightning-button type="reset" label="Reset"></lightning-button>
+                </div>
+            </form>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Session Logs" icon-name="custom:custom14">
+        <div class="slds-p-around_medium">
+            <template for:each={sessionLogs} for:item="log">
+                <p key={log.timestamp}>
+                    <strong>Session Status:</strong> {log.status} <br/>
+                    <strong>Start Time:</strong> {log.sessionStart} <br/>
+                    <strong>End Time:</strong> {log.sessionEnd} <br/>
+                    <strong>Duration:</strong> {log.duration} seconds <br/>
+                </p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,143 @@
+/* Card Styles */
+.slds-card {
+    background-color: #f9fafb;  /* Soft background color for the card */
+    border-radius: 12px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 20px auto;
+}
+
+/* Card Header Styles */
+.slds-card__header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;  /* Dark color for text */
+}
+
+/* Product Tile Styles */
+.product-tile {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);  /* Gradient background for tiles */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    color: #fff;  /* White text on the gradient background */
+}
+
+.product-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon Styling */
+.product-tile .tile-icon {
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.product-tile span {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Grid Layout for Product Tiles */
+.slds-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-around;
+}
+
+/* Pagination Button Styles */
+.lightning-button {
+    margin: 10px 8px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Previous Button Styles */
+.lightning-button.previous {
+    background-color: #27ae60;  /* Green color for Previous */
+    color: white;
+    text-align: left;
+}
+
+.lightning-button.previous:hover {
+    background-color: #2ecc71;  /* Lighter green for hover effect */
+}
+
+.lightning-button.previous[disabled] {
+    background-color: #b2dfdb;  /* Light disabled color */
+}
+
+/* Next Button Styles */
+.lightning-button.next {
+    background-color: #2980b9;  /* Blue color for Next */
+    color: white;
+    text-align: right;
+}
+
+
+.lightning-button.next:hover {
+    background-color: #3498db;  /* Lighter blue for hover effect */
+}
+
+.lightning-button.next[disabled] {
+    background-color: #aec6cf;  /* Light disabled color */
+}
+
+/* Footer Styles */
+.slds-card__footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Button Group Styling */
+.slds-button-group {
+    display: flex;
+    justify-content: center;
+}
+
+/* Page Number Styling */
+.page-number {
+    font-size: 16px;
+    font-weight: 500;
+    color: #2c3e50;  /* Dark color for the text */
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* Footer buttons container */
+.footer-buttons {
+    display: flex;
+    justify-content: space-between; /* This ensures buttons are at opposite sides */
+    width: 100%;
+}
+
+/* Button Styling (optional adjustments) */
+.previous,
+.next {
+    margin: 10px;
+}
+
+/* Positioning and style improvements */
+.previous {
+    justify-self: flex-start;
+}
+
+.next {
+    justify-self: flex-end;
+}

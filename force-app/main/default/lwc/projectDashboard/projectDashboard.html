@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="TaskFlow Dashboard" icon-name="utility:apps">
+        <div class="slds-p-around_medium">
+            <!-- Error Alert Component -->
+            <c-error-alert-component></c-error-alert-component>
+            
+            <!-- Task Publisher Buttons -->
+            <c-error-publisher-component></c-error-publisher-component>
+
+            <!-- Task List (Simulated for demo purposes) -->
+            <lightning-datatable
+                data={tasks}
+                columns={columns}
+                key-field="id"
+                hide-checkbox-column>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

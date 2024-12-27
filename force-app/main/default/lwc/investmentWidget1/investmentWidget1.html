@@ -1,0 +1,16 @@
+<template>
+    <!-- Investment Widget Card -->
+    <lightning-card title="Investment Widget" icon-name="utility:apps">
+        <div class="slds-p-around_medium slds-text-align_center">
+            <!-- Widget Loaded Text -->
+            <p class="slds-text-body_regular slds-m-bottom_medium">Investment Widget Loaded</p>
+
+            <!-- Button to emit custom events -->
+            <lightning-button 
+                label="Emit Custom Event" 
+                variant="neutral"
+                onclick={emitCustomEvent}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

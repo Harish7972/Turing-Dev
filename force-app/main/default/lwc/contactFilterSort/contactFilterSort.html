@@ -1,0 +1,11 @@
+<template>
+    <template if:true={contacts}>
+        <ul class="contact-list">
+            <template for:each={contacts} for:item="contact">
+                <li key={contact.Id}>
+                    <span>{contact.Name}</span> - <span>{contact.Status}</span> - <span>{contact.CreatedDate}</span>
+                </li>
+            </template>
+        </ul>
+    </template>
+</template>

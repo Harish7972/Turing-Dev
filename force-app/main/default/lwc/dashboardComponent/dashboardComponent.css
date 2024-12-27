@@ -1,0 +1,16 @@
+.dashboard-container {
+    padding: 1rem;
+    text-align: center;
+}
+
+.slds-box {
+    margin: auto;
+    max-width: 600px;
+}
+
+.slds-theme_error {
+    border: 1px solid #ea001e;
+    background-color: #ffecec;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+}

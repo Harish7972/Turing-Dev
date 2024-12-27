@@ -1,0 +1,23 @@
+<template>
+    <section class="comments-section">
+        <h2 class="section-title">Comments Section</h2>
+
+        <!-- Form for adding a new comment -->
+        <form class="comment-form" onsubmit={handlePreventDefault}>
+            <label for="commentInput" class="form-label">Write your comment:</label>
+            <textarea id="commentInput" class="comment-input" placeholder="Share your thoughts here"></textarea>
+            <button type="submit" class="submit-button">Submit Comment</button>
+        </form>
+
+        <!-- Reply section -->
+        <div class="reply-section" onclick={handleStopPropagation}>
+            <p class="reply-text">Want to reply to a specific comment?</p>
+            <button class="reply-button">Reply</button>
+        </div>
+
+        <!-- Add Reply Button -->
+        <div class="reply-container">
+            <button class="reply-action-button">Post Reply</button>
+        </div>
+    </section>
+</template>

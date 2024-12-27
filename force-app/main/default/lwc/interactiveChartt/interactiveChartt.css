@@ -1,0 +1,30 @@
+.background-image {
+    background-image: url(/resource/chartMasters); /* Replace 'backgroundImage' with the actual static resource name */
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+    color: #1087d2;
+    text-align: center;
+}
+/* Parent container styling */
+.parent-container {
+    border: 2px solid #1589ee; /* Blue border */
+    border-radius: 8px;       /* Rounded corners */
+    background-color: #f4f6f9; /* Light gray background */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.parent-container:hover {
+    transform: scale(1.02);   /* Slight zoom-in effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Text styling */
+.parent-text {
+    font-size: 1.2rem;        /* Slightly larger font */
+    font-weight: 600;         /* Bold text */
+    color: #054c8c;           /* Deep blue color */
+    text-align: center;       /* Center align text */
+    margin: 0;
+    padding: 0.5rem 0;
+}

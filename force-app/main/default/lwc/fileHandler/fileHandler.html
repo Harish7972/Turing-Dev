@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="File Handler">
+        <lightning-input type="file" label="Upload a File" onchange={handleFileUpload}></lightning-input>
+        <template if:true={fileContent}>
+            <p>File Content:</p>
+            <pre>{fileContent}</pre>
+            <a href={fileUrl} target="_blank">Preview File</a>
+            <lightning-button label="Download File" onclick={downloadFile} class="slds-m-top_small"></lightning-button>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Contact List" icon-name="standard:contact">
+        <!-- Filters for status, creation date, and account -->
+        <lightning-input label="Status" value={status} onchange={handleFilterChange}></lightning-input>
+        <lightning-input label="Start Date" type="date" value={startDate} onchange={handleFilterChange}></lightning-input>
+        <lightning-input label="End Date" type="date" value={endDate} onchange={handleFilterChange}></lightning-input>
+        <lightning-input label="Account" value={accountId} onchange={handleFilterChange}></lightning-input>
+
+        <!-- Sort by dropdown -->
+        <lightning-combobox label="Sort By" value={sortField} options={sortOptions} onchange={handleSortChange}></lightning-combobox>
+        <lightning-combobox label="Sort Direction" value={sortDirection} options={sortDirectionOptions} onchange={handleSortChange}></lightning-combobox>
+
+        <!-- Display filtered and sorted contacts in a datatable -->
+        <lightning-datatable
+            key-field="Id"
+            data={contacts}
+            columns={columns}>
+        </lightning-datatable>
+    </lightning-card>
+</template>

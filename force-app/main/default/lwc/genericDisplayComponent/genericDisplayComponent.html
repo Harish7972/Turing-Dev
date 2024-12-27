@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title={title}>
+        <template if:true={computedRecords}>
+            <template for:each={computedRecords} for:item="record">
+                <div key={record.id} class="slds-box slds-m-bottom_small">
+                    <template for:each={fields} for:item="field">
+                        <p key={field} class="slds-p-horizontal_small">
+                            <strong>{field}:</strong> {record.fields[field]}
+                        </p>
+                    </template>
+                </div>
+            </template>
+        </template>
+        <template if:false={computedRecords}>
+            <p>No data available to display.</p>
+        </template>
+    </lightning-card>
+</template>

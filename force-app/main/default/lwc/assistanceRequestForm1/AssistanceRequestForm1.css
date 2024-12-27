@@ -1,0 +1,89 @@
+.event-registration-container {
+    margin: auto;
+    max-width: 800px;
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.background-image {
+    background-image: url('path/to/your/background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+    color: rgb(20, 213, 247);
+}
+
+.title {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+}
+
+.location-search {
+    margin-bottom: 20px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.images-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.event-image {
+    width: 30%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.styled-combobox,
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.background-image {
+    background-image: url(/resource/Helpnow); /* Replace 'backgroundImage' with the actual static resource name */
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+    color: #1087d2;
+    text-align: center;
+}

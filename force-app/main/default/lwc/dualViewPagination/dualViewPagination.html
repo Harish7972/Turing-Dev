@@ -1,0 +1,36 @@
+<template>
+    <div class="pagination-container">
+        <h1 class="slds-text-align_center slds-text-heading_large">Content for {userRole}</h1>
+
+        <!-- Role Selection -->
+        <lightning-combobox
+            name="role"
+            label="Select Role"
+            value={userRole}
+            options={roleOptions} 
+            onchange={handleRoleChange}
+        ></lightning-combobox>
+
+        <template if:true={isLoading}>
+            <p>Loading...</p>
+        </template>
+
+        <template if:true={data}>
+            <div class="data-grid">
+                <template for:each={data} for:item="item">
+                    <div key={item.Id} class="data-tile">
+                        <lightning-icon icon-name="utility:task" size="small" class="tile-icon"></lightning-icon>
+                        <p class="tile-title">{item.Subject}</p>
+                        <p class="tile-status">{item.Status}</p>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+        <div class="pagination-controls">
+            <lightning-button label="Previous" onclick={handlePrevious} disabled={isFirstPage} variant="neutral"></lightning-button>
+            <p>Page {pageNumber} of {totalPages}</p>
+            <lightning-button label="Next" onclick={handleNext} disabled={isLastPage} variant="neutral"></lightning-button>
+        </div>
+    </div>
+</template>

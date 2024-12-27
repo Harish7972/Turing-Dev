@@ -1,0 +1,9 @@
+<template>
+    <lightning-button label="Click Me" onclick={handleClick}></lightning-button>
+    <lightning-input label="Enter your name" onchange={handleChange}></lightning-input>
+    
+    <!-- Child component that triggers custom event -->
+    <c-dashboard-Child-Component oncustom={handleCustomEvent}></c-dashboard-Child-Component>
+    
+    <p>{message}</p>
+</template>

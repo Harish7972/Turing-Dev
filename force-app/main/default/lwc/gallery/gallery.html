@@ -1,0 +1,59 @@
+<template>
+    <lightning-card title="Image Gallery">
+
+
+        <div class="gallery">
+            <template if:true={images}>
+                <template for:each={images} for:item="image">
+                    <div
+                        key={image.id}
+                        class="gallery-item"
+                        data-title={image.title}
+                        data-description={image.description}
+                        data-url={image.url}
+                        data-content-size={image.contentSize}
+                        data-created-date={image.createdDate}
+                        data-dimensions={image.dimensions}
+                        onmouseover={handleImageHover}
+                        onmouseout={handleImageLeave}
+                        onclick={handleImageClick}
+                    >
+                        <img src={image.url} alt={image.title} />
+                    </div>
+                </template>
+            </template>
+            <template if:false={images}>
+                <p>Loading images...</p>
+            </template>
+        </div>
+
+
+        <!-- Image Hover Details Box -->
+        <template if:true={hoveredImage.title}>
+            <div 
+                class="hover-details" 
+                style={hoverStyle}>
+                <h3>{hoveredImage.title}</h3>
+                <p>{hoveredImage.description}</p>
+                <p>Size: {hoveredImage.contentSize} bytes</p>
+                <p>Uploaded on: {hoveredImage.createdDate}</p>
+                <p>{hoveredImage.dimensions}</p>
+            </div>
+        </template>
+
+        <!-- Modal -->
+        <template if:true={isModalOpen}>
+            <section class="modal" onclick={closeModal}>
+                <div class="modal-content" onclick={stopPropagation}>
+                    <span class="modal-close" onclick={closeModal}>&times;</span>
+                    <img src={currentImage.url} alt={currentImage.title} />
+                    <div class="modal-details">
+                        <h2>{currentImage.title}</h2>
+                        <p>{currentImage.description}</p>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+    </lightning-card>
+</template>

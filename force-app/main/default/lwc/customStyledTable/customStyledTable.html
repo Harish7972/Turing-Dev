@@ -1,0 +1,17 @@
+<template>  
+    <lightning-card title="Dynamic Themed Table">  
+        <div class="button-container">  
+            <lightning-button label="Theme 1: Modern" variant="brand" onclick={setThemeOne}></lightning-button>  
+            <lightning-button label="Theme 2: Classic" variant="neutral" onclick={setThemeTwo}></lightning-button>  
+        </div>  
+
+        <div class="table-container">  
+            <lightning-datatable  
+                data={tableData}  
+                columns={columns}  
+                key-field="id"  
+                class={themeClass}>  
+            </lightning-datatable>  
+        </div>  
+    </lightning-card>  
+</template>

@@ -1,0 +1,56 @@
+<template>
+    <!-- Parent Container -->
+    <div class="parent-container" onclick={handleParentClick}>
+        <p class="parent-text">Click anywhere in this parent container to trigger the parent event.</p>
+
+        <!-- Chart Container -->
+        <lightning-card title="Interactive Chart Data" icon-name="standard:dataset">
+            <div class="background-image">
+                <h1 class="title"></h1>
+            </div>
+            <!-- Data Display -->
+            <template if:true={data}>
+                <lightning-layout multiple-rows>
+                    <template for:each={data} for:item="record">
+                        <lightning-layout-item key={record.Id} padding="around-small" size="12" medium-size="6" large-size="4">
+                            <lightning-card title={record.Name} icon-name="utility:info" onclick={handleEvent}>
+                                <div slot="footer">
+                                    <!-- Value Display -->
+                                    <p>Value: {record.Value__c}</p>
+                                    <!-- Horizontal Line -->
+                                    <hr />
+                                </div>
+                            </lightning-card>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </template>
+            <template if:false={data}>
+                <div class="slds-text-align_center">
+                    <p>No data to display.</p>
+                </div>
+            </template>
+        </lightning-card>
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="slds-m-top_medium slds-grid slds-grid_vertical-align-center">
+        <div class="slds-col slds-text-align_left">
+            <lightning-button
+                label="Previous"
+                onclick={handlePreviousPage}
+                disabled={isPreviousDisabled}>
+            </lightning-button>
+        </div>
+        <div class="slds-col slds-text-align_center">
+            <p>Page {currentPage} of {totalPages}</p>
+        </div>
+        <div class="slds-col slds-text-align_right">
+            <lightning-button
+                label="Next"
+                onclick={handleNextPage}
+                disabled={isNextDisabled}>
+            </lightning-button>
+        </div>
+    </div>
+</template>

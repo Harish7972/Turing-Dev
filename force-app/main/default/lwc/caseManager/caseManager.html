@@ -1,0 +1,54 @@
+<!-- <template>
+    <template if:true={cases}>
+        <ul>
+            <template for:each={cases} for:item="cas">
+                <li key={cas.Id}>
+                    <span>{cas.CaseNumber} - {cas.Status}</span>
+                    <lightning-button label="Resolve" onclick={handleResolveClick} data-id={cas.Id}></lightning-button>
+                </li>
+            </template>
+        </ul>
+    </template>
+    <template if:true={error}>
+        <p>{error}</p>
+    </template>
+</template> -->
+
+<template>
+    <!-- Display loading spinner while processing update -->
+
+    <lightning-card  variant="Narrow"  title="Case List " icon-name="standard:account">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+ 
+    <!-- <h2 class="slds-text-heading_medium slds-p-around_medium">List of Cases</h2> -->
+    <!-- Check if there are cases to display -->
+    <template if:true={cases}>
+        <ul class="slds-list_dotted slds-m-around_medium  container">
+            <!-- Loop through the cases and display them -->
+            <template for:each={cases} for:item="caseItem">
+                <div key={caseItem.Id} class="slds-box slds-box_xx-small slds-m-bottom_medium row">
+                    <!-- Display case number and status -->
+                    <div class="slds-text-heading_medium ">{caseItem.CaseNumber}</div>
+                    <div class="slds-text-body_regular ">Status: {caseItem.Status}</div>
+                    
+                    <!-- Button to resolve the case -->
+                    <lightning-button class=""
+                        label="Resolve" 
+                        onclick={handleResolveClick} 
+                        data-id={caseItem.Id} 
+                        variant="brand"
+                    ></lightning-button>
+                </div>
+            </template>
+        </ul>
+    </template>
+
+    <!-- Display error if something goes wrong -->
+        <template if:true={error}>
+            <p class="slds-text-color_error">{error}</p>
+        </template>
+    </lightning-card>
+   
+</template>

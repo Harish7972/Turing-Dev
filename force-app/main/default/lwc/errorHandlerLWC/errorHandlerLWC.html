@@ -1,0 +1,100 @@
+<template>
+    <lightning-card title="Error Handling Example" icon-name="standard:account">
+
+        <!-- Error Notification -->
+        <template if:true={errorMessage}>
+            <div class="error-container">
+                <h2>{errorMessage}</h2>
+                <p>{resolutionSteps}</p>
+            </div>
+        </template>
+
+        <!-- Success Toast -->
+        <template if:true={showSuccessToast}>
+            <div class="toast success">
+                <span>{successMessage}</span>
+            </div>
+        </template>
+
+        <!-- Datatable -->
+        <template if:true={accounts}>
+            <lightning-datatable
+                key-field="id"
+                data={accounts}
+                columns={columns}
+                onrowselection={handleRowSelection}>
+            </lightning-datatable>
+        </template>
+
+         <!-- Pagination Controls -->
+         <div class="slds-m-top_medium slds-grid pagination-controls">
+            <div class="slds-col slds-text-align_left">
+                <lightning-button
+                    label="Previous"
+                    onclick={handlePreviousPage}
+                    disabled={isPreviousDisabled}>
+                </lightning-button>
+            </div>
+            <div class="slds-col slds-text-align_center">
+                <p>Page {currentPage} of {totalPages}</p>
+            </div>
+            <div class="slds-col slds-text-align_right">
+                <lightning-button
+                    label="Next"
+                    onclick={handleNextPage}
+                    disabled={isNextDisabled}>
+                </lightning-button>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-container">
+            <lightning-button label="Fetch Data" variant="brand" onclick={handleFetchData}></lightning-button>
+            <lightning-button label={updateButtonLabel} variant="success" onclick={handleUpdateData}></lightning-button>
+            <lightning-button label="Delete Data" variant="destructive" onclick={handleDeleteData}></lightning-button>
+        </div>
+
+        <!-- Edit Modal -->
+        <template if:true={showEditModal}>
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2>Edit Account</h2>
+                    </header>
+                    <div class="slds-modal__content">
+                        <lightning-input data-field="Name" label="Name" value={selectedAccount.Name} onchange={handleAccountFieldChange}></lightning-input>
+                        <lightning-input data-field="Phone" label="Phone" value={selectedAccount.Phone} onchange={handleAccountFieldChange}></lightning-input>
+                        <lightning-input data-field="BillingStreet" label="BillingStreet " value={selectedAccount.BillingStreet} onchange={handleAccountFieldChange}></lightning-input>
+                        <lightning-input data-field="ShippingStreet" label="ShippingStreet " value={selectedAccount.ShippingStreet} onchange={handleAccountFieldChange}></lightning-input>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning-button variant="brand" label="Save" onclick={handleSaveUpdate}></lightning-button>
+                        <lightning-button variant="neutral" label="Cancel" onclick={closeEditModal}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+        <!-- Delete Confirmation Modal -->
+    <template if:true={showDeleteModal}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2>Confirm Delete</h2>
+                </header>
+                <div class="slds-modal__content">
+                    <p>Are you sure you want to delete the selected account?</p>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="destructive" label="Delete" onclick={confirmDelete}></lightning-button>
+                    <lightning-button variant="neutral" label="Cancel" onclick={cancelDelete}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+
+    </lightning-card>
+</template>

@@ -1,0 +1,25 @@
+.scroll-container {
+    height: 300px; /* Set the height according to your design */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 10px; /* To account for scroll bar */
+}
+
+.class-xyz{
+   display: flex;
+  justify-content: space-between; /* Adjust spacing between columns */
+  align-items: stretch; /* Align items vertically */
+  gap: 10px; 
+
+}
+
+/* Page Number Styling */
+.page-number {
+    font-size: 16px;
+    font-weight: 500;
+    color: #2c3e50;  /* Dark color for the text */
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* Rest of your existing CSS remains unchanged */

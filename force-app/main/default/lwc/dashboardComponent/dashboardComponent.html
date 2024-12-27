@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Dashboard">
+        <div class="dashboard-container">
+            <!-- Welcome Message -->
+            <h2 class="slds-text-heading_medium">Welcome to the Dashboard</h2>
+            <p class="slds-text-body_regular slds-m-bottom_medium">
+                This dashboard dynamically handles errors in nested child components. 
+                If any error occurs, you'll see an alert message.
+            </p>
+
+            <!-- Child Component -->
+            <c-chart-component></c-chart-component>
+
+            <!-- Error Notice (Displayed on Error) -->
+            <template if:false={isRendered}>
+                <div class="slds-box slds-theme_error slds-m-top_medium">
+                    <p class="slds-text-color_error">
+                        An error occurred in the child component. Please try refreshing the page or contact support.
+                    </p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

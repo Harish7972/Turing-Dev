@@ -1,0 +1,47 @@
+/* Style for the error message container */
+.error-container {
+    background-color: #f4f6f9;
+    border: 1px solid #d8dde6;
+    padding: 10px;
+    margin: 10px;
+    color: #e74c3c;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Style for the success toast */
+.toast {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.toast.success {
+    background-color: #4caf50;
+}
+
+/* Style for button container */
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Style for modal header and footer */
+.slds-modal__header {
+    background-color: #0044cc;
+    color: white;
+}
+
+.slds-modal__content {
+    padding: 20px;
+}
+
+.slds-modal__footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: right;
+}

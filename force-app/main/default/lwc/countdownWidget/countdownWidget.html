@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Workout Timer" icon-name="utility:clock">
+        <div class="greeting">Hello, {userName}! Ready to sweat?</div>
+
+        <!-- Tile Layout for Buttons -->
+        <div class="tiles">
+            <div class="tile" onclick={handleDurationClick} data-time="60">1 Minute</div>
+            <div class="tile" onclick={handleDurationClick} data-time="300">5 Minutes</div>
+            <div class="tile" onclick={handleDurationClick} data-time="600">10 Minutes</div>
+            <div class="tile" onclick={handleDurationClick} data-time="900">15 Minutes</div>
+        </div>
+
+        <!-- Watch with Moving Hands -->
+        <div class="watch">
+            <div class="watch-face">
+                <div class="hand hour-hand" style="transform: rotate({hourHandRotation}deg)"></div>
+                <div class="hand minute-hand" style="transform: rotate({minuteHandRotation}deg)"></div>
+                <lightning-button 
+                    label={pauseButtonLabel} 
+                    onclick={togglePauseResume} 
+                    variant="neutral" 
+                    class="pause-button" 
+                    disabled={isPauseDisabled}>
+                </lightning-button>
+            </div>
+        </div>
+
+        <!-- Timer Display -->
+        <div class="timer-display">{formattedTime}</div>
+
+        <!-- Completion Message -->
+        <div if:true={isComplete} class="popup">
+            <p class="completion-text">Woohoo! You completed the timer!</p>
+            <lightning-button label="Dismiss" onclick={dismissPopup}></lightning-button>
+        </div>
+
+        <!-- Encouragement Toast -->
+        <div if:true={showToast} class="toast">Timer started! Let's do this!</div>
+    </lightning-card>
+</template>

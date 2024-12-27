@@ -1,0 +1,40 @@
+/* Center aligns the form container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+/* Styles the error message to make it noticeable */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Highlight invalid fields with a red border and shadow */
+input:invalid {
+    border-color: red;
+}
+input:invalid:focus {
+    outline-color: red;
+    box-shadow: 0 0 5px red;
+}
+
+/* Highlight valid fields with green border */
+input:valid {
+    border-color: green;
+}
+input:valid:focus {
+    outline-color: green;
+    box-shadow: 0 0 5px green;
+}
+
+/* Updated submit-box styles to reposition the submit button */
+.submit-box {
+    text-align: right; /* Align the button to the left */
+    margin-top: 20px; /* Add some space above the button */
+    padding-left: 10px; /* Add some space to the left */
+}

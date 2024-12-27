@@ -1,0 +1,47 @@
+<template>
+    <lightning-card title="Session Manager" icon-name="custom:custom14">
+        <div class="slds-p-around_medium slds-text-align_center">
+            <!-- Centering the session status message and buttons -->
+            <p>Session Status: <strong>{sessionStatus}</strong></p>
+            <lightning-button label="Start Session" onclick={handleStartSession}></lightning-button>
+            <lightning-button class="end-session-btn" label="End Session" onclick={handleEndSession}></lightning-button>
+        </div>
+
+        <!-- Centering the timer message -->
+        <!-- <h2 class="slds-text-align_center slds-p-around_medium">{timerMessage}</h2> -->
+
+        <div class="slds-text-align_center slds-p-around_medium">
+            <h2 class="slds-text-heading_medium">{timerMessage}</h2>
+        </div>
+
+        <!-- Child component to display and manage session timer -->
+        <c-session-timer session-status={sessionStatus}></c-session-timer>
+        
+        <!-- Centering the "Recent Session Logs" heading -->
+        <div class="slds-text-align_center slds-p-around_medium">
+            <h1 class="slds-text-heading_medium">Recent Session Logs</h1>
+        </div>
+
+        <!-- Session Log Table -->
+        <table class="slds-table slds-table_bordered slds-table_striped">
+            <thead>
+                <tr>
+                    <th>Session Name</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Total Time (Minutes)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={sessionLogs} for:item="log">
+                    <tr key={log.Id}>
+                        <td>{log.Session_Name__c}</td>
+                        <td>{log.Start_time__c}</td>
+                        <td>{log.End_Time__c}</td>
+                        <td>{log.Total_time__c}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+</template>

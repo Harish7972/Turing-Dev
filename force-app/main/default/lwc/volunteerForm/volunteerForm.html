@@ -1,0 +1,52 @@
+<template>
+    <!-- Lightning Card to encapsulate the volunteer registration form -->
+     
+    <lightning-card title="Volunteer Registration" >
+        <div class="form-container">
+            <!-- Input for the volunteer's name -->
+            <lightning-input 
+                name="name" 
+                label="Name" 
+                placeholder="Enter your name" 
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <!-- Input for the volunteer's email -->
+            <lightning-input 
+                name="email" 
+                label="Email" 
+                type="email" 
+                placeholder="Enter your email" 
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <!-- Input for the volunteer's phone number -->
+            <lightning-input 
+                name="phone" 
+                label="Phone" 
+                type="tel" 
+                placeholder="Enter your phone number" 
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <!-- Textarea for the volunteer's experience details -->
+            <lightning-textarea 
+                name="experience" 
+                label="Experience" 
+                placeholder="Enter your experience" 
+                onchange={handleInputChange}>
+            </lightning-textarea>
+
+            <!-- Display error messages dynamically -->
+            <div class="error-message" if:true={errorMessage}>{errorMessage}</div>
+            <div class="submit-box">
+            <!-- Button to submit the form -->
+            <lightning-button 
+                label="Submit" 
+                variant="brand"
+                onclick={handleFormSubmit}>
+            </lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

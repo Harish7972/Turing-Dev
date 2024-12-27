@@ -1,0 +1,144 @@
+/* Hero Section with Background Text */
+.hero-section {
+    background-color: #0070d2; /* Background color */
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 30px;
+    position: relative;
+    height: 250px;
+}
+
+.hero-text h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2); /* Semi-transparent overlay */
+    z-index: 0;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Container */
+.header-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.header-container h1 {
+    color: #2a7d8f;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.menu lightning-button {
+    background-color: #0070d2;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Services Section */
+.services-container {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.services-container h2 {
+    color: #0070d2;
+    font-size: 24px;
+}
+
+.services-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.services-container li {
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.services-container li lightning-icon {
+    margin-right: 10px;
+}
+
+/* Error UI */
+.error-container {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.error-icon {
+    margin-right: 10px;
+    color: #856404;
+}
+
+.error-message {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.contact-message {
+    font-size: 14px;
+    color: #555;
+}
+
+.contact-support {
+    color: green;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Loading Spinner */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #f4f6f9;
+    border-radius: 10px;
+}
+
+.loading-container p {
+    margin-left: 20px;
+    font-size: 16px;
+    color: #555;
+}

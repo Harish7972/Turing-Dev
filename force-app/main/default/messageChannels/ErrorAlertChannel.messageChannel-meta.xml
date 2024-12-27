@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Metadata definition for the Lightning Message Channel -->
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <!-- Specifies whether the channel is exposed to the Lightning Message Service -->
+    <isExposed>true</isExposed>
+    <!-- The label used to identify the channel in the UI -->
+    <masterLabel>ErrorAlertChannel</masterLabel> <!-- API Name should be ErrorAlertChannel -->
+</LightningMessageChannel>

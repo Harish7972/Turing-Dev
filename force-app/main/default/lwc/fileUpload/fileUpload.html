@@ -1,0 +1,70 @@
+<template>
+    <lightning-card title="File Upload (Max 5MB)" icon-name="standard:file">
+        <div class="slds-p-around_medium">
+            <!-- Drag-and-Drop Area -->
+            <div 
+                class="slds-box slds-box_xx-small slds-text-align_center slds-p-around_medium drop-area"
+                ondragover={handleDragOver} 
+                ondrop={handleDrop}>
+                <p>Drag & Drop your file here</p>
+            </div>
+
+            <!-- File Selection Button -->
+            <lightning-button variant="neutral" label="Choose File" onclick={handleFileClick}></lightning-button>
+            
+            <!-- File Input (Hidden for User) -->
+            <input type="file" class="slds-hide" onchange={handleFileSelection} accept=".pdf,.doc,.docx,.xls,.xlsx" />
+            
+            <!-- File Info -->
+            <template if:true={file}>
+                <div class="slds-m-top_medium">
+                    <p><strong>Selected File:</strong> {file.name}</p>
+                    <p><strong>File Type:</strong> {file.type}</p>
+                    <p><strong>File Size:</strong> {file.size} bytes</p>
+                </div>
+            </template>
+
+            <!-- Attach to Record Checkbox -->
+            <lightning-input 
+                type="checkbox" 
+                label="Attach Document to the Record" 
+                onchange={handleCheckboxChange}>
+            </lightning-input>
+
+            <!-- Upload Button -->
+            <lightning-button 
+                variant="brand" 
+                label="Upload" 
+                onclick={handleUpload} 
+                disabled={isUploadDisabled}>
+            </lightning-button>
+
+            <!-- Uploading Spinner -->
+            <template if:true={isUploading}>
+                <div class="slds-m-top_medium">
+                    <lightning-spinner size="small" alternative-text="Uploading..." ></lightning-spinner>
+                </div>
+            </template>
+
+            <!-- Success Message -->
+            <template if:true={isSuccess}>
+                <div class="slds-m-top_medium">
+                    <div class="slds-notify slds-notify_alert slds-alert_success" role="alert">
+                        <span class="slds-assistive-text">success</span>
+                        <h2>File uploaded successfully!</h2>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Error Message -->
+            <template if:true={isError}>
+                <div class="slds-m-top_medium">
+                    <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                        <span class="slds-assistive-text">error</span>
+                        <h2>{errorMessage}</h2>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Image Uploader">
+        <div class="slds-m-around_medium">
+            <!-- Preview Section -->
+            <template if:true={imagePreview}>
+                <div class="image-preview">
+                    <img src={imagePreview} alt="Image Preview" />
+                </div>
+            </template>
+
+            <!-- File Input -->
+            <div class="slds-m-bottom_medium">
+                <input type="file" accept="image/*" onchange={handleFileChange} />
+            </div>
+
+            <!-- Validation Messages -->
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error">{errorMessage}</div>
+            </template>
+
+            <!-- Upload Button -->
+            <lightning-button
+                label="Upload Image"
+                onclick={uploadFile}
+                class="slds-m-top_medium"
+                disabled={disableUpload}
+            ></lightning-button>
+        </div>
+    </lightning-card>
+</template>

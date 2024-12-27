@@ -1,0 +1,29 @@
+.dashboard-container {
+    max-width: 1024px;
+    margin: auto;
+}
+.tile-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.log-tile {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: box-shadow 0.2s;
+}
+.log-tile:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.log-content {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.resolve-button {
+    margin-top: 1rem;
+}
+.dashboard-title {
+    text-align: center; /* Centers the title horizontally */
+   
+}

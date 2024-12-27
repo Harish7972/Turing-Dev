@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Project Dashboard Overview" icon-name="utility:dashboard">
+        <div class="slds-p-around_medium slds-text-align_center">
+            <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+                Project Updates
+            </h2>
+            <p class="slds-text-body_regular slds-m-bottom_medium">
+                Below are the updates received from the sender component:
+            </p>
+
+            <!-- Display updates dynamically -->
+            <template if:true={updates}>
+                <ul class="slds-list_dotted">
+                    <template for:each={updates} for:item="update">
+                        <li key={update.id}>
+                            <p><strong>Project Name:</strong> {update.projectName}</p>
+                            <p><strong>Message:</strong> {update.message}</p>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+
+            <!-- Fallback if no updates are received -->
+            <template if:false={updates}>
+                <p>No updates received yet.</p>
+            </template>
+
+            <!-- Include the child component -->
+            <c-message-component onprojectupdate={handleProjectUpdate}></c-message-component>
+        </div>
+    </lightning-card>
+</template>

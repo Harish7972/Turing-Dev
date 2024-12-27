@@ -1,0 +1,127 @@
+<template>
+    <lightning-card title="Registration Manager" icon-name="standard:lead">
+        <!-- Register for Event Button -->
+        <div class="button-container">
+            <button class="custom-register-button" onclick={openRegistrationForm}>
+                Register for Dreamforce Day
+            </button>
+        </div>
+
+        <!-- Registration Form -->
+        <template if:true={showForm}>
+            <div class="registration-form">
+                <lightning-input
+                    label="Name"
+                    placeholder="Enter your name"
+                    value={name}
+                    onchange={handleNameChange}>
+                </lightning-input>
+                <lightning-input
+                    label="Event Date"
+                    type="date"
+                    value={eventDate}
+                    onchange={handleDateChange}>
+                </lightning-input>
+                <lightning-input
+                    label="Email"
+                    type="email"
+                    value={email}
+                    onchange={handleEmailChange}>
+                </lightning-input>
+                <lightning-input
+                    label="Phone"
+                    type="tel"
+                    value={phone}
+                    onchange={handlePhoneChange}>
+                </lightning-input>
+                <div class="form-buttons">
+                    <lightning-button
+                        label="Submit"
+                        variant="success"
+                        onclick={handleFormSubmit}>
+                    </lightning-button>
+                    <lightning-button
+                        label="Cancel"
+                        variant="neutral"
+                        onclick={closeRegistrationForm}>
+                    </lightning-button>
+                </div>
+            </div>
+        </template>
+
+        <!-- Data Table -->
+        <lightning-datatable
+            key-field="Id"
+            data={registrations}
+            columns={columns}
+            onrowselection={handleRowSelection}>
+        </lightning-datatable>
+
+        <!-- Edit Event Date Button -->
+        <lightning-button
+            label="Change Event Date"
+            variant="brand"
+            onclick={openEditModal}>
+        </lightning-button>
+
+        <!-- Modal for Editing Event Date -->
+        <template if:true={showEditModal}>
+            <section class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 class="slds-text-heading_medium">Change Event Date</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <lightning-input
+                            label="Name"
+                            placeholder="Enter your name"
+                            value={newName}
+                            onchange={handleNewNameChange}>
+                        </lightning-input>
+                        <lightning-input
+                            label="Event Date"
+                            type="date"
+                            value={newEventDate}
+                            onchange={handleNewEventDateChange}>
+                        </lightning-input>
+
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning-button
+                            label="Cancel"
+                            variant="neutral"
+                            onclick={closeEditModal}>
+                        </lightning-button>
+                        <lightning-button
+                            label="Save"
+                            variant="brand"
+                            onclick={handleEditSave}>
+                        </lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+         <!-- Pagination Controls -->
+         <div class="slds-m-top_medium slds-grid pagination-controls">
+            <div class="slds-col slds-text-align_left">
+                <lightning-button
+                    label="Previous"
+                    onclick={handlePreviousPage}
+                    disabled={isPreviousDisabled}>
+                </lightning-button>
+            </div>
+            <div class="slds-col slds-text-align_center">
+                <p>Page {currentPage} of {totalPages}</p>
+            </div>
+            <div class="slds-col slds-text-align_right">
+                <lightning-button
+                    label="Next"
+                    onclick={handleNextPage}
+                    disabled={isNextDisabled}>
+                </lightning-button>
+            </div>
+        </div>
+   </lightning-card>
+</template>

@@ -1,0 +1,75 @@
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+.page-info {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.previous-button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px; /* Move it to the left corner */
+}
+
+.next-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px; /* Keep the "Next" button at the right bottom corner */
+}
+.slds-card__footer {
+    text-align: center;
+    margin-top: 20px;
+}
+/* Footer buttons container */
+.footer-buttons {
+    display: flex;
+    justify-content: space-between; /* This ensures buttons are at opposite sides */
+    width: 100%;
+}
+.hero-text {
+    position: relative;
+    z-index: 1;
+}
+.hero-section {
+    background-color: #0070d2; /* Background color */
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 30px;
+    position: relative;
+    height: 50px;
+}
+
+.hero-text h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2); /* Semi-transparent overlay */
+    z-index: 0;
+}
+
+.header-container h1 {
+    color: #2a7d8f;
+    font-size: 32px;
+    font-weight: bold;
+}

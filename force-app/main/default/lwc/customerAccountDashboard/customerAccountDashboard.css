@@ -1,0 +1,13 @@
+.dashboard-card {
+    /* Add some height to the card */
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures proper spacing of content */
+}
+
+.taller-card {
+    /* Ensure a balanced taller card appearance */
+    min-height: 500px;
+    max-height: 600px;
+}

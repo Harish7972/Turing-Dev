@@ -1,0 +1,17 @@
+<!-- AchievementsLWC.html -->
+<template>
+    <lightning-card title="User Achievements">
+        <template if:true={achievements}>
+            <ul>
+                <template for:each={achievements} for:item="achievement">
+                    <li key={achievement.Id}>
+                        {achievement.Name} - {achievement.Type__c} - {achievement.Date__c}
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+    </lightning-card>
+</template>
