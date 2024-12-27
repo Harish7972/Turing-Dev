@@ -72,4 +72,4 @@ export default class ImageGallery extends LightningElement {
         });
         this.dispatchEvent(event);
     }
-}
+}  

@@ -53,4 +53,4 @@ public with sharing class ImageGalleryDataController {
             this.dimensions = dimensions;
         }
     }
-}
+}  

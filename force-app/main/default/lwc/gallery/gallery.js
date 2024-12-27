@@ -1,5 +1,5 @@
 import { LightningElement, track, wire } from 'lwc';
-import getFiles from '@salesforce/apex/ImageGallerydataController.getFiles';
+import getFiles from '@salesforce/apex/ImageGalleryDataController.getFiles';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class paginationGallery extends LightningElement {
@@ -98,4 +98,4 @@ export default class paginationGallery extends LightningElement {
         });
         this.dispatchEvent(event);
     }
-}
+} 

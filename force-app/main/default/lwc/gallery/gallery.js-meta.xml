@@ -10,4 +10,4 @@
         <target>lightning__AppPage</target>
         <target>lightning__RecordPage</target>
     </targets>
-</LightningComponentBundle>
+</LightningComponentBundle>  
